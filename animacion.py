@@ -67,7 +67,7 @@ def posiciones(H: nx.Graph, layout: str, seed: int = 42) -> dict:
         return nx.fruchterman_reingold_layout(H, seed=seed)
     # por defecto: spring
     # Ajuste k ~ 1/sqrt(n) ayuda a espaciar en redes medianas
-    k = 1.0 / math.sqrt(max(H.number_of_nodes(), 1))
+    k = 3.0 / math.sqrt(max(H.number_of_nodes(), 1))
     return nx.spring_layout(H, seed=seed, k=k)
 
 def construir_capas(dist: dict[int,int], max_grados: int) -> list[set[int]]:
